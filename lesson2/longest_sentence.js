@@ -27,11 +27,11 @@ let longText = 'Four score and seven years ago our fathers brought forth' +
   ' of freedom -- and that government of the people, by' +
   ' the people, for the people, shall not perish from the' +
   ' earth.';
-  // ' earth!'; // for testing
 
 // abstractions:
 // - split the text into an arr of sentences
 //   - sentences delimited by any of [.!?] and any num of non-word chars
+//   - remove any leading non-word chars
 // - split the text into an arr of chars
 //   - filter sentence delimiters
 // - split each sentence into an arr of words
@@ -42,24 +42,14 @@ let longText = 'Four score and seven years ago our fathers brought forth' +
 //   - append the corresponding sentence delimiter
 
 function longestSentence(text) {
-  let sentences = text.split(/[.!?]\W*/);
-  // console.log(sentences);
-
+  let sentences = text.split(/[.!?]\W*/).map(sentence => sentence.replace(/^\W*/, ''));
   let sentenceDelimiters = text.split('').filter(char => /[.!?]/.test(char));
-  // console.log(sentenceDelimiters);
-
-  let sentenceLengths = sentences.map(sentence => {
-    let words = sentence.split(/[ .!?]/);
-    // console.log(words);
-    return words.length;
-  });
-  // console.log(sentenceLengths);
-
+  let sentenceLengths = sentences.map(sentence => sentence.split(/[ .!?]/).length);
   let mostWords = Math.max(...sentenceLengths);
-  console.log(`The longest sentence has ${mostWords} words.`);
   let longestNdx = sentenceLengths.indexOf(mostWords);
-  // console.log(longestNdx);
   let longest = sentences[longestNdx] + sentenceDelimiters[longestNdx];
+
+  console.log(`The longest sentence has ${mostWords} words.`);
   console.log(longest);
 }
 
@@ -95,3 +85,9 @@ longestSentence(longText);
 // console output
 // Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in liberty, and dedicated to the proposition that all men are created equal.
 // The longest sentence has 30 words.
+
+console.log();
+longestSentence("    I yam what I yam!");
+// console output
+// I yam what I yam!
+// The longest sentence has 5 words.
