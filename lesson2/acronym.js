@@ -5,11 +5,11 @@
 // - join the arr elems and rtn the string
 
 // function acronym(string) {
-//   return string.replace(/[,:\.]/g, '').split(/[ \-]/).map(elem => elem[0].toUpperCase()).join('');
+//   return string.replace(/[,:.]/g, '').split(/[ -]/).map(elem => elem[0].toUpperCase()).join('');
 // }
 
 function acronym(string) {
-  return string.replace(/-/g, ' ').split(' ').map(elem => elem[0].toUpperCase()).join('');
+  return string.split(/[ -]/).map(elem => elem[0].toUpperCase()).join('');
 }
 
 console.log(acronym('Portable Network Graphics'));                  // "PNG"

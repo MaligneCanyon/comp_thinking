@@ -49,8 +49,7 @@ let negativeWords = ['die', 'heartache', 'death', 'despise', 'scorn', 'weary', '
 
 function sentiment(text) {
   // let arr = text.toLowerCase().split(/[^a-z0-9]/i);
-  let arr = text.toLowerCase().match(/[a-z']+/g); // from the Hint
-  // console.log(arr);
+  let arr = text.match(/[a-z']+/gi); // from the Hint; words with apostrophes
 
   let positiveSentiments = arr.filter(word => positiveWords.includes(word));
   let negativeSentiments = arr.filter(word => negativeWords.includes(word));

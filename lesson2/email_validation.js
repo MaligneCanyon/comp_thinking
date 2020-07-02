@@ -1,10 +1,9 @@
-// Implement a function that checks whether an email address is valid. An email address has two parts:
-// A "local part" and a "domain part." An @ sign separates the two parts: local-part@domain-part. The
-// local part is the name of the mailbox; this is usually a username. The domain part is the domain
-// name (e.g., gmail.com, yahoo.com.ph, or myCompanyName.com). The domain name contains a server name
-// (sometimes called the mail server name) and a top-level domain (.com, .ph, etc.).
+// An email address has two parts: A "local part" and a "domain part." An @ sign separates the two parts:
+// local-part@domain-part. The local part is the name of the mailbox; this is usually a username. The domain
+// part is the domain name (e.g., gmail.com, yahoo.com.ph, or myCompanyName.com). The domain name contains a
+// server name (sometimes called the mail server name) and a top-level domain (.com, .ph, etc.).
 
-// For this practice problem, use the following criteria to determine whether an email address is valid:
+// Use the following criteria to determine whether an email address is valid:
 //     There must be one @ sign.
 //     The local part must contain one or more letters (A-Z, a-z) and/or digits (0-9). It may not
 //     contain any other characters.
@@ -31,10 +30,12 @@
 //   if (/\w/.test(local)) { // found at least one letter or digit
 //     if (/\./.test(domain)) { // found one or more dots
 //       arr = domain.split('.');
+//       if (arr.length < 2) return false; // not enough domain components
 //       if (arr.some(elem => (/[^a-z]/i).test(elem))) return false; // found a non-letter in a domain component
 //       if (arr.every(elem => (/[a-z]/i).test(elem))) return true; // found >=1 letter char in every domain component
 //     }
 //   }
+
 //   return false;
 // }
 

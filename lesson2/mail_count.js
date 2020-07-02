@@ -14,9 +14,14 @@
 function mailCount(emailData) {
   let messages = emailData.split('##||##');
   let messageDates = messages.map(msg => {
-    let date = new Date(msg.split('#/#')[2]);
+    // split each msg and extract the last 10 chars from the 2nd component (the dateStr);
+    // replace '-' in the dateStr w/ '/'; Firefox does not support mm-dd-yyyy dateStr format
+    let dateStr = msg.split('#/#')[2].slice(-10).replace(/-/g, '/');
+    // console.log(dateStr);
+    let date = new Date(dateStr);
     return date.getTime(); // ms since epoch
   });
+  // console.log(messageDates);
 
   let minDate = Math.min(...messageDates);
   let maxDate = Math.max(...messageDates);

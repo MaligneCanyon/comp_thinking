@@ -39,7 +39,6 @@ let textExcerpt = 'To be or not to be-that is the question:\n' +
 
 // let positiveWords = ['fortune', 'dream', 'love', 'respect', 'patience', 'devout', 'noble', 'resolution'];
 // let negativeWords = ['die', 'heartache', 'death', 'despise', 'scorn', 'weary', 'trouble', 'oppress'];
-
 let positiveRegex = /\bfortunes?\b|\bdream(s|t|ed)?\b|love(s|d)?\b|respect(s|ed)?\b|\bpatien(ce|t)?\b|\bdevout(ly)?\b|\bnobler?\b|\bresolut(e|ion)?\b/gi;
 let negativeRegex = /\bdie(s|d)?\b|\bheartached?\b|death|despise(s|d)?\b|\bscorn(s|ed)?\b|\bweary\b|\btroubles?\b|\boppress(es|ed|or('s)?)?\b/gi;
 
@@ -52,12 +51,10 @@ let negativeRegex = /\bdie(s|d)?\b|\bheartached?\b|death|despise(s|d)?\b|\bscorn
 
 function sentiment(text) {
   // let arr = text.toLowerCase().split(/[^a-z0-9]/i);
-  let arr = text.toLowerCase().match(/[a-z']+/g); // from the Hint
-  // console.log(arr);
+  let arr = text.match(/[a-z']+/gi); // from the Hint; words with apostrophes
 
   // let positiveSentiments = arr.filter(word => positiveWords.includes(word));
   // let negativeSentiments = arr.filter(word => negativeWords.includes(word));
-
   let positiveSentiments = arr.filter(word => positiveRegex.test(word));
   let negativeSentiments = arr.filter(word => negativeRegex.test(word));
 

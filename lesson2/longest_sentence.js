@@ -30,8 +30,8 @@ let longText = 'Four score and seven years ago our fathers brought forth' +
 
 // abstractions:
 // - split the text into an arr of sentences
-//   - sentences delimited by any of [.!?] and any num of non-word chars
-//   - remove any leading non-word chars
+//   - sentences delimited by any of [.!?]
+//   - remove any num of leading non-word chars
 // - split the text into an arr of chars
 //   - filter sentence delimiters
 // - split each sentence into an arr of words
@@ -42,7 +42,7 @@ let longText = 'Four score and seven years ago our fathers brought forth' +
 //   - append the corresponding sentence delimiter
 
 function longestSentence(text) {
-  let sentences = text.split(/[.!?]\W*/).map(sentence => sentence.replace(/^\W*/, ''));
+  let sentences = text.split(/[.!?]/).map(sentence => sentence.replace(/^\W*/, ''));
   let sentenceDelimiters = text.split('').filter(char => /[.!?]/.test(char));
   let sentenceLengths = sentences.map(sentence => sentence.split(/[ .!?]/).length);
   let mostWords = Math.max(...sentenceLengths);
