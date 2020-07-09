@@ -79,4 +79,22 @@ function encryptChar(char, key) {
 
 let plaintext = "Pineapples don't go on pizzas!";
 let keyword = "meat";
-console.log(vigenereEncrypt(plaintext, keyword)); // Bmnxmtpeqw dhz'x gh ar pbldal!
+console.log(vigenereEncrypt(plaintext, keyword));
+// result: Bmnxmtpeqw dhz'x gh ar pbldal!
+
+keyword = "A";
+console.log(vigenereEncrypt(plaintext, keyword));
+// result: Pineapples don't go on pizzas!
+
+keyword = "Aa";
+console.log(vigenereEncrypt(plaintext, keyword));
+// result: Pineapples don't go on pizzas!
+
+keyword = "cab";
+console.log(vigenereEncrypt(plaintext, keyword));
+// result: Riogaqrlfu dpp't hq oo riabat!
+
+plaintext = "Dog"
+keyword = "Rabbit"
+console.log(vigenereEncrypt(plaintext, keyword));
+// result: Uoh

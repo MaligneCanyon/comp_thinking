@@ -1,7 +1,3 @@
-// Write a function that displays a four-pointed diamond in an nxn grid, where n is an odd integer
-// supplied as an argument to the function. You may assume that the argument will always be an odd
-// integer.
-
 // inputs:
 // - int (n = grid size)
 // outputs:
@@ -35,13 +31,14 @@
 //       - (i - midpt) spaces
 //       - (n - 2 * (i - midpt)) asterisks
 //     - else
-//       - (i - midpt) spaces
+//       - (midpt - i) spaces
 //       - (1 + 2 * (i - 1)) asterisks
 //   - output the str
 
 function diamond(n) {
   let midpt = Math.ceil(n/2);
   // console.log(midpt);
+  let str;
 
   for (let i = 1; i <= n; i++) {
     if (i > midpt) {
