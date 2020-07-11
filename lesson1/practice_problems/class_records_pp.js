@@ -91,12 +91,6 @@ function generateClassRecordSummary(stuScores) {
   return ({ studentGrades: combinedGrades, exams: examResults });
 }
 
-function minmaxExamResult(words) {
-  return words.reduce(function (result, currentWord) {
-    return currentWord.length >= result.length ? currentWord : result;
-  });
-}
-
 // Generate a combined percent and letter grade for a student
 function generateStudentGrade(studentScore) {
   // console.log(studentScore);

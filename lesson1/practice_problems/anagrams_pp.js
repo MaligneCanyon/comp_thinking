@@ -7,18 +7,29 @@
 // - filter each word from the list where the newList word equals the newWord
 // - rtn the filtered list
 
+// function anagram(word, list) {
+//   let newWord = letterSort(word);
+//   let newList = list.map(letterSort);
+//   // we are interested in ndx positions in the newList where the newList word
+//   // equals the newWord;
+//   // we want to filter words in the original list that are at those indices
+//   return list.filter((listWord, ndx) => newList[ndx] === newWord);
+// }
+
+// function letterSort(str) {
+//   return str.split('').sort().join('');
+// }
+
+
+// refactored ...
+// - filter each word from the list where the sorted list word equals the baseWord
 function anagram(word, list) {
-  let newWord = letterSort(word);
-  let newList = list.map(letterSort);
-  // we are interested in ndx positions in the newList where the newList word
-  // equals the newWord;
-  // we want to filter words in the original list that are at those indices
-  return list.filter((listWord, ndx) => newList[ndx] === newWord);
+  let baseWord = letterSort(word);
+  return list.filter(elem => letterSort(elem) === baseWord);
 }
 
-function letterSort(str) {
-  return str.split('').sort().join('');
-}
+let letterSort = word => word.split('').sort().join('');
+
 
 console.log(anagram('listen', ['enlists', 'google', 'inlets', 'banana']));  // [ "inlets" ]
 console.log(anagram('listen', ['enlist', 'google', 'inlets', 'banana']));   // [ "enlist", "inlets" ]
