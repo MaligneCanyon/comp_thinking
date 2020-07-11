@@ -6,15 +6,7 @@ let studentGrades = [
   { name: 'StudentE', grade: 91.81 },
 ];
 
-function compareGrades(student1, student2) {
-  // if (student1.grade < student2.grade) {
-  //   return 1;
-  // } else if (student1.grade > student2.grade) {
-  //   return -1;
-  // } else {
-  //   return 0;
-  // }
-
+function compareGrades(student1, student2) { // sorted in descending order
   if (student1.grade < student2.grade) return 1;
   if (student1.grade > student2.grade) return -1;
   return 0;

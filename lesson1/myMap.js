@@ -11,6 +11,7 @@ console.log(myMap([1, 2, 3, 4], plusOne)); // [ 2, 3, 4, 5 ]
 function getBooksTitle(books) {
   return myMap(books, getTitle);
 }
+
 let books = [
   {
     title: 'JavaScript and JQuery: Interactive Front-End Web Development',
@@ -28,9 +29,11 @@ let books = [
     edition: '4th',
   },
 ];
+
 function getTitle(book) {
   return book['title'];
 }
+
 console.log(getBooksTitle(books));
 // [
 //   "JavaScript and JQuery: Interactive Front-End Web Development",

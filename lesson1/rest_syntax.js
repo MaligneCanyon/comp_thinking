@@ -1,10 +1,20 @@
-// function maxItem() { // use w/ convoluted or better syntax
-  // let maximum = arguments[0]; // use w/ convoluted or better syntax
-function maxItem(firstElem, ...moreElems) { // use w/ best syntax ('rest' syntax is the best !)
-  let maximum = firstElem; // use w/ best syntax
+// function maxItem() {
+//   let maximum = arguments[0];
 
-  // [].forEach.call(arguments, value => { // convoluted
-  // Array.from(arguments).forEach(value => { // better
+//   // [].forEach.call(arguments, value => { // convoluted
+//   Array.from(arguments).forEach(value => { // better
+//     if (value > maximum) {
+//       maximum = value;
+//     }
+//   });
+
+//   return maximum;
+// }
+
+
+function maxItem(firstElem, ...moreElems) { // best syntax ('rest' is the best syntax !)
+  let maximum = firstElem;
+
   moreElems.forEach(value => { // best
     if (value > maximum) {
       maximum = value;
