@@ -1,5 +1,5 @@
 function transactionsFor(inventoryItem, xactions) {
-  // return xactions.filter(obj => obj['id'] === inventoryItem);
+  // return xactions.filter(obj => obj.id === inventoryItem);
   return xactions.filter(({id}) => id === inventoryItem); // from the Solution
 }
 

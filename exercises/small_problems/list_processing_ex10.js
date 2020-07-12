@@ -4,16 +4,15 @@
 // - rtn T if the total is > 0; F otherwise
 
 function transactionsFor(inventoryItem, xactions) {
-  return xactions.filter(obj => obj['id'] === inventoryItem);
+  return xactions.filter(obj => obj.id === inventoryItem);
 }
 
 function isItemAvailable(inventoryItem, xactions) {
   let arr = transactionsFor(inventoryItem, xactions);
-  // console.log(arr);
   let total = arr.reduce((accum, obj) => {
-    let sign = obj['movement'] === 'in' ? 1 : -1;
-    // console.log(`accum = ${accum}, sign = ${sign}, quantity = ${obj['quantity']}`);
-    return accum + sign * obj['quantity'];
+    let sign = obj.movement === 'in' ? 1 : -1;
+    // console.log(`accum = ${accum}, sign = ${sign}, quantity = ${obj.quantity}`);
+    return accum + sign * obj.quantity;
   }, 0);
 
   // console.log(total);

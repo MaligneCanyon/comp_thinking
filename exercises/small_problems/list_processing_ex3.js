@@ -2,7 +2,7 @@
 // - init a new arr to []
 // * for each elem of arr1
 //   * for each elem of arr2
-//     - multiply the elems and add them to the new arr
+//     - multiply the elems and push them to the new arr
 // * sort the new arr numerically and rtn the result
 
 function multiplyAllPairs(arr1, arr2) {

@@ -1,14 +1,14 @@
-function substringsAtStart(str) {
-  return str.split('').map((elem, ndx, arr) => arr.slice(0, ndx + 1).join(''));
+function leadingSubstrings(str) {
+  return str.split('').map((elem, ndx) => str.slice(0, ndx + 1));
 }
 
 function substrings(str) {
-  return str.split('').map((char, i) => substringsAtStart(str.slice(i))).flat();
+  return str.split('').map((char, i) => leadingSubstrings(str.slice(i))).flat();
 }
 
 // abs:
 // - call substrings() to determine the substrs of a str
-// - for each remaining substr
+// - for each substr
 //   - if the substr is not single-char and the str equals the reverse of the str
 //     - filter the substr
 // - rtn the filtered substrs

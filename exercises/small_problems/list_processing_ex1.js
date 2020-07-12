@@ -1,13 +1,11 @@
 // abstractions:
 // - convert the num to a str
 // - split the str into an arr of chars
-// * map the arr of chars to an arr of digits
-// * reduce the arr of digits to a sum
+// - map the arr of chars to an arr of digits
+// - reduce the arr of digits to a sum
 
 function sum(num) {
-  let arr = String(num).split('').map(elem => Number(elem));
-  // console.log(arr);
-  return arr.reduce((accum, elem) => accum + elem, 0);
+  return String(num).split('').map(Number).reduce((accum, elem) => accum + elem);
 }
 
 console.log(sum(23));           // 5

@@ -1,11 +1,16 @@
-function arrExpander(arr) {
-  let [str, num] = arr;
+// abs:
+// - for each subarr elem in the arr
+//   - init a newArr to []
+//   - push the subarr str to the newArr
+//     (push the str the num of times specd by the numeric value in the subarr)
+//   - map the newArr to the subarr
+// - flatten and rtn the arr
+
+function arrExpander(subarr) {
+  let [str, num] = subarr;
   let newArr = [];
 
-  for (let i = 0; i < num; i++) {
-    newArr.push(str);
-  }
-
+  while (num --> 0) newArr.push(str);
   return newArr;
 }
 
