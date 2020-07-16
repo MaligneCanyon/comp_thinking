@@ -1,5 +1,5 @@
 function staggeredCase(str) {
-  return str.split('').map((char, ndx) => (ndx % 2) ? char.toLowerCase() : char.toUpperCase()).join('');
+  return str.split('').map((char, ndx) => ndx % 2 ? char.toLowerCase() : char.toUpperCase()).join('');
 }
 
 console.log(staggeredCase('I Love Launch School!'));        // "I LoVe lAuNcH ScHoOl!"

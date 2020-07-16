@@ -38,13 +38,13 @@ function encode(str, rails) {
 // decode
 // ======
 // algo:
-// - since encode populates the global arr, and since the encoded and decoded strs
-//   are the same length, we can call encode to determine how many chars come
-//   from each rail (from each arr elem)
+// - since encode populates the global arr, and since the encoded and decoded
+//   strs are the same length, we can call encode to determine how many chars
+//   come from each rail (from each arr elem)
 // - make a copy of the encoded str
 // - for each elem in the arr
-//   - set the elem equal to the first elem.length chars sliced from the copy of
-//     the encoded str
+//   - set the elem equal to the first elem.length chars sliced from the copy
+//     of the encoded str
 // - init a newStr to ''
 // - set a flag to indicate whether we are moving down or up between rails
 // - init an ndx to 0
@@ -89,8 +89,7 @@ function stringy(str, rails, cipher) {
     if (rails > 1) {
       if (movingDown) ndx += 1;
       else ndx -= 1;
-      if (ndx === rails - 1 || ndx === 0)
-        movingDown = movingDown ? false : true;
+      if (ndx === rails - 1 || ndx === 0) movingDown = !movingDown;
     }
   });
 

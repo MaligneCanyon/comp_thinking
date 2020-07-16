@@ -1,14 +1,26 @@
+// algo
+// - init a flag 'upper' to true
+// - split the str into an arr of chars
+// - for each char
+//   - if the char alphabetic
+//     - if the flag is true
+//       - map the uppercased char to the arr
+//     - else
+//       - map the lowercased char to the arr
+//     - toggle the flag
+// - join the arr chars and rtn the new str
+
 // function staggeredCase(str) {
-//   let arr = str.split('');
-
-//   for (let ndx = 0, counter = 0; ndx < str.length; ndx++) {
-//     if (/[a-z]/i.test(arr[ndx])) {
-//       arr[ndx] = (counter % 2) ? arr[ndx].toLowerCase() : arr[ndx].toUpperCase();
-//       counter++;
+//   let upper = true;
+//
+//   return str.split('').map((char) => {
+//     if (/[a-z]/i.test(char)) {
+//       char = upper ? char.toUpperCase() : char.toLowerCase();
+//       upper = !upper;
 //     }
-//   }
-
-//   return arr.join('');
+//
+//     return char;
+//   }).join('');
 // }
 
 function staggeredCase(str) {
@@ -17,8 +29,10 @@ function staggeredCase(str) {
   return str.split('').map(char => {
     if (/[a-z]/i.test(char)) {
       // incr the counter after eval'ing (counter % 2)
-      return (counter++ % 2) ? char.toLowerCase() : char.toUpperCase();
-    } else return char;
+      char = counter++ % 2 ? char.toLowerCase() : char.toUpperCase();
+    }
+
+    return char;
   }).join('');
 }
 

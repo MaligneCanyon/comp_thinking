@@ -46,8 +46,8 @@ function longestSentence(text) {
   let sentenceDelimiters = text.split('').filter(char => /[.!?]/.test(char));
   let sentenceLengths = sentences.map(sentence => sentence.split(/[ .!?]/).length);
   let mostWords = Math.max(...sentenceLengths);
-  let longestNdx = sentenceLengths.indexOf(mostWords);
-  let longest = sentences[longestNdx] + sentenceDelimiters[longestNdx];
+  let longestSentenceNdx = sentenceLengths.indexOf(mostWords);
+  let longest = sentences[longestSentenceNdx] + sentenceDelimiters[longestSentenceNdx];
 
   console.log(`The longest sentence has ${mostWords} words.`);
   console.log(longest);

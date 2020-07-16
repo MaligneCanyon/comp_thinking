@@ -28,7 +28,7 @@
 //   - Add all these digits together
 //   - rtn T or F based on whether the total ends with 0
 // rules:
-// - dble every 2nd elem value, starting from ndx 1
+// - dble every 2nd elem value, starting with ndx 1
 // - if the dbld value is > 10, subtract 9 from it
 // struct:
 // - arr (to hold numerical chars from the input str)

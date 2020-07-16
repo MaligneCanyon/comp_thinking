@@ -4,11 +4,11 @@
 // server name (sometimes called the mail server name) and a top-level domain (.com, .ph, etc.).
 
 // Use the following criteria to determine whether an email address is valid:
-//     There must be one @ sign.
-//     The local part must contain one or more letters (A-Z, a-z) and/or digits (0-9). It may not
-//     contain any other characters.
-//     The domain part must contain two or more components with a single dot (.) between each component.
-//     Each component must contain one or more letters (A-Z, a-z) only.
+//   There must be one @ sign.
+//   The local part must contain one or more letters (A-Z, a-z) and/or digits (0-9). It may not
+//   contain any other characters.
+//   The domain part must contain two or more components with a single dot (.) between each component.
+//   Each component must contain one or more letters (A-Z, a-z) only.
 
 // abstractions:
 // - test whether the str contains exactly 1 @ symbol
@@ -17,7 +17,7 @@
 // - test whether the domain-part contains 1+ dots
 // - split the domain-part into an arr of components
 // - test whether each component contains 1+ letters and no other chars
-// - if any test fails, rtn F; otherwise rtn true
+// - if any test fails, rtn F; otherwise rtn T
 
 // function isValidEmail(email) {
 //   let local;

@@ -1,5 +1,5 @@
-// While version numbers often appear to be decimal numbers, they are, in fact, a convenient notation for a
-// more complicated number system. The following are all legal version numbers:
+// While version numbers often appear to be decimal numbers, they are, in fact, a convenient notation
+// for a more complicated number system. The following are all legal version numbers:
 
 // 1
 // 1.0
@@ -7,14 +7,6 @@
 // 3.2.3
 // 3.0.0
 // 4.2.3.0
-
-// Write a function that takes any two version numbers in this format and compares them, with the result
-// of this comparison showing whether the first is less than, equal to, or greater than the second version:
-
-//     If version1 > version2, we should return 1.
-//     If version1 < version2, we should return -1.
-//     If version1 === version2, we should return 0.
-//     If either version number contains characters other than digits and the . character, we should return null.
 
 // Here is an example of version number ordering:
 // 0.1 < 1 = 1.0 < 1.1 < 1.2 = 1.2.0.0 < 1.18.2 < 13.37
@@ -26,6 +18,7 @@
 // reqs:
 // - parse the two vers nums and determine whether the 1st is greater, equal to, or less than the 2nd
 // - rtn -1, 0, 1 based on the above comparison
+// - rtn null if the inputs contain chars other than digits or '.'
 // rules:
 // - digits at the beginning of the str are more signif than those appearing later in the str
 // - digits later in the str indicate a more specific vers
@@ -55,10 +48,12 @@ function validInput(str) {
   // regex composition:
   // >=0 groups of 1+ digits followed by a dot, always
   // ending w/ a group of 1+ digits, and containing no other chars
-  return (str !== '' && str !== undefined) && (/^([0-9]+\.)*[0-9]+$/.test(str));
+  // return (str !== '' && str !== undefined) && (/^([0-9]+\.)*[0-9]+$/.test(str));
 
   // '\2' refs the inner capture group in the following (but the result is incorrect - why?):
-  // return (str !== '' && str !== undefined) && (/^(([0-9]+)\.)*\2$/.test(str));
+  // whatever substr matched the 1st time must match exactly the 2nd time;
+  // '123.123' will match, but '123.456' won't
+  return (str !== '' && str !== undefined) && (/^(([0-9]+)\.)*\2$/.test(str));
 }
 
 function remainingDigitsValue(arr) {
@@ -115,13 +110,13 @@ console.log(compareVersions('1.2.0.0', '1.18.2'));  // -1
 console.log(compareVersions('1.18.2', '13.37'));    // -1
 
 // from the "Create Examples / Test Cases" topic
-// console.log(compareVersions('1', '1'));            // 0
-// console.log(compareVersions('1.1', '1.0'));        // 1
-// console.log(compareVersions('2.3.4', '2.3.5'));    // -1
-// console.log(compareVersions('1.a', '1'));          // null
-// console.log(compareVersions('.1', '1'));           // null
-// console.log(compareVersions('1.', '2'));           // null
-// console.log(compareVersions('1..0', '2.0'));       // null
-// console.log(compareVersions('1.0', '1.0.0'));      // 0
-// console.log(compareVersions('1.0.0', '1.1'));      // -1
-// console.log(compareVersions('1.0', '1.0.5'));      // -1
+console.log(compareVersions('1', '1'));            // 0
+console.log(compareVersions('1.1', '1.0'));        // 1
+console.log(compareVersions('2.3.4', '2.3.5'));    // -1
+console.log(compareVersions('1.a', '1'));          // null
+console.log(compareVersions('.1', '1'));           // null
+console.log(compareVersions('1.', '2'));           // null
+console.log(compareVersions('1..0', '2.0'));       // null
+console.log(compareVersions('1.0', '1.0.0'));      // 0
+console.log(compareVersions('1.0.0', '1.1'));      // -1
+console.log(compareVersions('1.0', '1.0.5'));      // -1
