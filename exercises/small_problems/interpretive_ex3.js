@@ -3,9 +3,9 @@
 // outputs:
 // - boolean
 // reqs:
-// - determine if a str can be created from a list of chars, where each char has a "partner" char
+// - determine if a str can be created from 2-letter blocks of chars of the alphabet
 // rules:
-// - each char (or its partner) can only be used once
+// - each block (therefore each char (or its partner)) can only be used once
 // test cases:
 console.log(isBlockWord('BATCH'));      // true
 console.log(isBlockWord('BUTCH'));      // false
@@ -29,9 +29,10 @@ console.log(isBlockWord('Box'));        // false
 //       - delete the property from the obj
 //       - break
 //   - if the flag is F, the block w/ the letter was already used, so rtn F
-// - eos reached and every char found, so rtn T
+// - eos reached and every char foundLetter, so rtn T
 
 function isBlockWord(str) {
+  let arr = str.toUpperCase().split('');
   let blocks = {
     'B': 'O',
     'X': 'K',
@@ -47,19 +48,28 @@ function isBlockWord(str) {
     'L': 'Y',
     'Z': 'M',
   }
-  let arr = str.toUpperCase().split('');
 
+  let keys = Object.keys(blocks);
+  let values = Object.values(blocks);
   for (let i = 0; i < arr.length; i++) {
-    let found = false;
+    let foundLetter = false;
     for (key in blocks) {
       if (key === arr[i] || blocks[key] === arr[i]) {
-        found = true;
+        foundLetter = true;
         delete(blocks[key]);
         break;
       }
     }
+    if (!foundLetter) return false;
 
-    if (!found) return false;
+  // this works too, but is a bit awkward ...
+  // for (let i = 0; i < arr.length; i++) {
+  //   let keys = Object.keys(blocks);
+  //   let values = Object.values(blocks);
+  //   if (keys.includes(arr[i])) delete(blocks[arr[i]]);
+  //   else if (values.includes(arr[i])) delete(blocks[keys[values.indexOf(arr[i])]]);
+  //   else return false;
+
   }
 
   return true;

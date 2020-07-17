@@ -3,14 +3,15 @@
 // outputs:
 // - str (encoded text)
 // reqs:
-// - given a str, shift alpha chars by the specd num of chars
+// - given a str, replace each alphabetic char by the char occuring at the
+//   specd 'key' num of positions later in the alphabet
 // rules:
 // - only alpha chars affected
 // - if end of alphabet reached, wrap to beginning of alphabet
 //   - (old char pos in alphabet + key) % 26 = new char pos in alphabet
 // test cases:
-// - as below, plus
-console.log(caesarEncrypt('*&^^(^^???|', 123)); // "*&^^(^^???|"
+// - as provided, plus
+console.log(caesarEncrypt('*&^^(^^???|', 123));  // "*&^^(^^???|"
 console.log(caesarEncrypt('Are you alive?', 6)); // "Gxk eua grobk?"
 // struct:
 // - arr

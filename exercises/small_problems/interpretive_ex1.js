@@ -31,7 +31,7 @@ function lightsOn(switches) {
   let pass = switches;
   while (pass --> 0) arr.push(false);
 
-  for (let pass = 1; pass <= switches; pass++) {
+  for (pass = 1; pass <= switches; pass++) {
     for (let ndx = pass - 1; ndx < switches; ndx += pass) {
       arr[ndx] = !arr[ndx];
     }
@@ -39,6 +39,14 @@ function lightsOn(switches) {
 
   return arr.map((elem, ndx) => elem ? ndx + 1 : elem).filter(elem => elem);
 }
+
+// function lightsOn(switches) {
+//   let max = Math.sqrt(switches);
+//   let arr = [];
+
+//   for (let i = 1; i <= max; i++) arr.push(i * i);
+//   return arr;
+// }
 
 console.log(lightsOn(5));        // [1, 4]
 // Detailed result of each round for `5` lights
@@ -49,3 +57,7 @@ console.log(lightsOn(5));        // [1, 4]
 // Round 5: lights 2, 3, and 5 are now off; 1 and 4 are on
 
 console.log(lightsOn(100));      // [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+console.log(lightsOn(143));      // [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121]
+console.log(lightsOn(144));      // [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144]
+
+// for (let j = 1; j < 50; j++) console.log(lightsOn(j));

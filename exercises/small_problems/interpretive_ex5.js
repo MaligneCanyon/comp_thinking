@@ -3,14 +3,14 @@
 // outputs:
 // - str (encoded text)
 // reqs:
-// - given a str, shift alpha chars by the specd num of chars
+// - given a str, replace each alphabetic char by the char occuring at the
+//   specd 'key' num of positions later in the alphabet
 // rules:
 // - only alpha chars affected
 // - if end of alphabet reached, wrap to beginning of alphabet
 //   - (old char pos in alphabet + key) % 26 = new char pos in alphabet
 // test cases:
-// - as below, plus
-
+// - as provided
 // struct:
 // - str
 // algo:
@@ -49,18 +49,6 @@ function vigenereEncrypt(str, keyword) {
 
   return newStr;
 }
-
-// encryptChar()
-// algo:
-// - determine whether the char is lowercase alphabetic
-// - convert the char to uppercase
-// - find the ndx pos of the char in the uppercase alphabet
-// - if the char is alphabetic (ndx pos is > -1)
-//   - shift the ndx pos by the key amt
-//   - convert the ndx pos to a char
-//   - if the char was lowercase
-//     - convert the char to lowercase
-// - rtn the char
 
 function encryptChar(char, key) {
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

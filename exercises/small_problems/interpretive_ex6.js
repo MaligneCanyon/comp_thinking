@@ -7,12 +7,12 @@
 // rules:
 // - n lines
 // - 1st line        : (i - 1) spaces, asterisk, (n-3)/2 - (i - 1) spaces, asterisk,
-//                     (n-3)/2 - i spaces, asterisk
+//                     (n-3)/2 - (i - 1) spaces, asterisk
 // - ...
 // - line mid=n/2+0.5: 0 spaces, n asterisks
 // - ...
 // - nth line        : (n - i) spaces, asterisk, (n-3)/2 - (n - i) spaces, asterisk,
-//                     (n-3)/2 - i spaces, asterisk
+//                     (n-3)/2 - (n - i) spaces, asterisk
 // test cases:
 // - as below
 // struct:
