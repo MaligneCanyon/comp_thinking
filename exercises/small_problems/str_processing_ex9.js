@@ -1,3 +1,21 @@
+// inputs:
+// - 2 strs (a word and text to search for the word in)
+// outputs:
+// - int (the num of occurences of the word in the text)
+// reqs:
+// - take a word and a text str
+// - rtn the num of occurences of the word in the text
+// rules:
+// - none
+// testcases:
+// - as below
+// struct:
+// - str
+// algo:
+// - create a regex pattern from the word
+// - match the word to the text
+// - rtn the num of matches
+
 function searchWord(word, str) {
   // let pattern = new RegExp(word, 'gi'); // create a new regex pattern for the word
   let pattern = new RegExp(`\\b${word}\\b`, 'gi'); // match whole words only

@@ -1,3 +1,21 @@
+// inputs:
+// - 2 strs (a word and text to search for the word in)
+// outputs:
+// - str
+// reqs:
+// - take a word and a text str
+// - rtn a new str w/ occurences of the word highlighted and upcased
+// rules:
+// - highlight w/ 2 asterisks on both sides of the word
+// testcases:
+// - as below
+// struct:
+// - str
+// algo:
+// - create a regex pattern from the word
+// - replace the pattern w/ the word upcased and surrounded by two asterisks on each side
+// - rtn the new str
+
 function searchWord(word, str) {
   let pattern = new RegExp(`\\b${word}\\b`, 'gi'); // match whole words only
   return str.replace(pattern, `**${word.toUpperCase()}**`);

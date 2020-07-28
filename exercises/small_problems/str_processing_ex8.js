@@ -1,3 +1,24 @@
+// inputs:
+// - str
+// outputs:
+// - arr (of strs)
+// reqs:
+// - take an input str
+// - rtn an arr composed of strs representing each word is the str and the word's length
+// rules:
+// - words are sepd by a single space
+// testcases:
+// - as below
+// struct:
+// - arr
+// algo:
+// - if the str is empty or not present
+//   - rtn an empty arr
+// - split the str into an arr of words
+// - map the words to a new arr as follows:
+//   - return the word plus a space plus the length of the word
+// - rtn the new arr
+
 function wordLengths(str) {
   if (str === undefined || str === '') return [];
   return str.split(' ').map(word => `${word} ${word.length}`);

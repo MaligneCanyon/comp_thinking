@@ -1,24 +1,39 @@
-// algo
-// - init a flag 'upper' to true
+// inputs:
+// - str
+// outputs:
+// - str
+// reqs:
+// - alternate the case of alpha chars in a str
+// - rtn the revised str
+// rules:
+// - alpha lowercase if char in range [a-z]
+// - alpha uppercase if char in range [A-Z]
+// - 1st alpha char is upppercase
+// testcases:
+// - as below
+// struct:
+// - arr
+// algo:
+// - init a flag to true
 // - split the str into an arr of chars
-// - for each char
-//   - if the char alphabetic
-//     - if the flag is true
-//       - map the uppercased char to the arr
-//     - else
-//       - map the lowercased char to the arr
+// - map the chars as follows:
+//   - if the char is alpha
+//     - if the flag is true, convert the char to uppercase
+//     - if the flag is false, convert the char to lowercase
 //     - toggle the flag
-// - join the arr chars and rtn the new str
+//   - rtn the char
+// - join the arr chars to form a new str
+// - rtn the new str
 
 // function staggeredCase(str) {
-//   let upper = true;
-//
-//   return str.split('').map((char) => {
+//   let upCase = true;
+
+//   return str.split('').map(char => {
 //     if (/[a-z]/i.test(char)) {
-//       char = upper ? char.toUpperCase() : char.toLowerCase();
-//       upper = !upper;
+//       char = upCase ? char.toUpperCase() : char.toLowerCase();
+//       upCase = !upCase;
 //     }
-//
+
 //     return char;
 //   }).join('');
 // }
