@@ -1,7 +1,21 @@
-// abstractions:
-// * map the arr of ints to the corresonding arr of words
-// * sort the arr of words alphabetically
-// * map the arr of words back to an arr of ints
+// inputs:
+// - arr (ints 0..19)
+// outputs:
+// - arr (sorted ints)
+// reqs:
+// - take an arr of ints and rtn an arr that is sorted based on the English word equiv of those ints
+// rules:
+// - ndx of English word equivs is equiv to the numerical value of each int
+// test cases:
+// - as below
+// struct:
+// - arr
+// algo:
+// - init a const arr w/ the English word equivs of ints 0..19
+// - map the input arr to the English word arr
+// - sort the mapped arr lexographically
+// - map the sorted arr back to its numeric equiv values
+// - rtn the sorted arr
 
 function alphabeticNumberSort(arr) {
   const NUM_WORDS = [

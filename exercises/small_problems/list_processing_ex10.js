@@ -1,22 +1,31 @@
-// abs:
-// - filter the xactions for the specified item
+// inputs:
+// - int (xaction id), arr (of objs)
+// outputs:
+// - boolean (wheof objs for a particular xaction)
+// reqs:
+// - take an arr w/ obj elems
+// - filter out elems that don't match the input xaction id
+// - sum the in and out movements of the item
+// - rtn a boolean indicating whether the sum is +ve or -ve
+// rules:
+// - none
+// test cases:
+// - as below
+// struct:
+// - arr
+// algo:
+// - call transactionsFor() to filter the xactions for the specified item
 // - reduce the quantity of items to a total
 // - rtn T if the total is > 0; F otherwise
 
-function transactionsFor(inventoryItem, xactions) {
-  return xactions.filter(obj => obj.id === inventoryItem);
+function transactionsFor(item, xactions) {
+  return xactions.filter(obj => obj.id === item);
 }
 
-function isItemAvailable(inventoryItem, xactions) {
-  let arr = transactionsFor(inventoryItem, xactions);
-  let total = arr.reduce((accum, obj) => {
-    let sign = obj.movement === 'in' ? 1 : -1;
-    // console.log(`accum = ${accum}, sign = ${sign}, quantity = ${obj.quantity}`);
-    return accum + sign * obj.quantity;
-  }, 0);
-
-  // console.log(total);
-  return total > 0;
+function isItemAvailable(item, xactions) {
+  let arr = transactionsFor(item, xactions);
+  let total = arr.reduce((accum, obj) => accum + (obj.movement === 'in' ? obj.quantity : -obj.quantity), 0);
+  return (total > 0);
 }
 
 const transactions = [ { id: 101, movement: 'in',  quantity:  5 },

@@ -1,8 +1,21 @@
-// abstractions:
+// inputs:
+// - int
+// outputs:
+// - int
+// reqs:
+// - rtn the sum of the digits of the input num
+// rules:
+// - none
+// test cases:
+// - as below
+// struct:
+// - arr
+// algo:
 // - convert the num to a str
 // - split the str into an arr of chars
-// - map the arr of chars to an arr of digits
-// - reduce the arr of digits to a sum
+// - map the arr of chars to an arr of nums
+// - reduce the arr of nums to a total
+// - rtn the total
 
 function sum(num) {
   return String(num).split('').map(Number).reduce((accum, elem) => accum + elem);
